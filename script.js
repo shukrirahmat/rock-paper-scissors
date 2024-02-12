@@ -1,8 +1,6 @@
-// GET computer choice
+// returns a randomized choice for the computer
 function getComputerChoice() {
-    // GET random number
     randomNumber = Math.floor(Math.random() * 3);
-    // RETURN choice depending on the number
     if (randomNumber === 0) {
         return "rock";
     } else if (randomNumber === 1) {
@@ -14,7 +12,6 @@ function getComputerChoice() {
 
 // Plays a single round of Rock Paper Scissor
 function playRound(playerSelection, computerSelection) {
-    // SET player selection to lower case
     playerSelection = playerSelection.toLowerCase();
     // Determines winner
     let winner;
@@ -41,28 +38,21 @@ function playRound(playerSelection, computerSelection) {
         console.log("You Win! Scissors beats Papers");
         winner = "player";
     }
-
-    // Return the string
     return winner;
 }
 
 // Plays a five round game
 function playGame() {
-    // Create number of games variable
     let round = 0;
-    // Create number of wins variable
     let playerScore = 0;
-    // Create number of loses variable
     let computerScore = 0;
-    // While number of games less than 5
     while (round < 5) {
-        // Prompt for player selection
+        
         let playerSelection = prompt("Enter rock, paper or scissors");
-        // Set computer choice
         let computerSelection = getComputerChoice();
-        // Call play round function
         let winner = playRound(playerSelection, computerSelection);
-        // Tally up wins and loses
+        
+        // Tally up and display wins and loses
         if (winner == "player") {
             playerScore++;
         }
@@ -70,7 +60,6 @@ function playGame() {
             computerScore++;
         }
         console.log("Player: " + playerScore + " | " + "Computer: " + computerScore);
-        // increment number of games
         round++;
     }
     // Determines winner
